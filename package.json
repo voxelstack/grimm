@@ -5,13 +5,20 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "rollup --config"
+    "dev": "run-p build:watch build:examples:watch serve:examples",
+    "build": "rollup --config ./rollup.config.js",
+    "build:watch": "pnpm build --watch",
+    "build:examples": "rollup --config ./examples/rollup.config.js",
+    "build:examples:watch": "pnpm build:examples --watch",
+    "serve:examples": "http-server examples -o -c-1"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
     "@rollup/plugin-typescript": "^12.1.0",
     "eslint": "^9.11.1",
     "globals": "^15.9.0",
+    "http-server": "^14.1.1",
+    "npm-run-all": "^4.1.5",
     "rollup": "^4.22.4",
     "tslib": "^2.7.0",
     "typescript": "^5.6.2",

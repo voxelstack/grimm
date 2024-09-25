@@ -4,11 +4,11 @@ export default {
 	input: "src/main.ts",
 	output: {
         dir: "build",
-		format: "cjs",
+		format: "es",
 	},
 	plugins: [typescript({
-		tsconfig: "./tsconfig.json",
+		tsconfig: "tsconfig.json",
 		declaration: true,
-		declarationDir: "build/types"
+		declarationDir: "build",
 	})],
 };
